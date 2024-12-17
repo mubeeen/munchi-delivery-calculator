@@ -6,15 +6,15 @@ interface DeliveryFeeCalculatorProps {
   
 }
 
-const DeliveryFeeCalculator: React.FC<DeliveryFeeCalculatorProps> = ({}) => {
-    const [cartValue, setCartValue] = useState<number | ''>('');
+const DeliveryFeeCalculator: React.FC<DeliveryFeeCalculatorProps> = () => {
+    const [cartValue, setCartValue] = useState<number | '' >('');
     const [deliveryDistance, setDeliveryDistance] = useState<number | ''>('');
     const [amountOfItems, setAmountOfItems] = useState<number | ''>('');
     const [date, setDate] = useState<string | ''>('');
     const [deliveryFee, setDeliveryFee] = useState<number>(0);
 
     const handleCartValue = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setCartValue(parseInt(e.target.value));
+        setCartValue(parseFloat(e.target.value));
     };
 
     const handleDliveryDistance = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -56,6 +56,7 @@ const DeliveryFeeCalculator: React.FC<DeliveryFeeCalculatorProps> = ({}) => {
                     value={cartValue}
                     onChange={handleCartValue}
                     addonText="€"
+                    step="0.001"
                 />
             </div>
             <div className='row'>
