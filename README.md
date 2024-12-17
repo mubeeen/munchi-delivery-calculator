@@ -1,46 +1,94 @@
-# Getting Started with Create React App
+# Munchi Delivery Fee Calculator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the **Munchi Delivery Fee Calculator** web application built with **React** and **TypeScript**. The application calculates the delivery fee based on several parameters like cart value, delivery distance, amount of items, and time (considering rush hours).
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Calculate the delivery fee based on the cart value, delivery distance, amount of items, and time of the order.
+- Free delivery for orders over 100€.
+- Delivery fee surcharge for carts under 10€.
+- Delivery distance fee based on the first 1000 meters and 1€ surcharge for every additional 500 meters.
+- Additional surcharge for orders with 5 or more items.
+- Friday rush hour surcharge (from 3 PM to 7 PM UTC).
+- Cap the delivery fee at 15€.
 
-### `yarn start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Frontend**: React, TypeScript, Bootstrap
+- **State Management**: React `useState` for managing form input states
+- **Styling**: Bootstrap 5 for responsive design and styling
+- **Build Tool**: Create React App
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Installation
 
-### `yarn test`
+Follow these steps to set up the project locally:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. Clone the Repository
 
-### `yarn build`
+```bash
+git clone https://github.com/yourusername/munchi-delivery-calculator.git
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 2. Install Dependencies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Navigate to the project folder and install the required dependencies.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+cd munchi-delivery-calculator
+npm install
+```
 
-### `yarn eject`
+### 3. Start the Development Server
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Once the dependencies are installed, you can start the development server with the following command:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Your app will be running at `http://localhost:3000`.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Project Structure
 
-## Learn More
+Here's an overview of the project's directory structure:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+src/
+|-- components/
+|   |-- DeliveryFeeCalculator.tsx          # Main calculator component
+|   |-- common/
+|       |-- CustomInput.tsx                # Reusable input component
+|-- utils/
+|   |-- calculateDeliveryFee.ts           # Utility function for calculating delivery fee
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **`DeliveryFeeCalculator.tsx`**: The main React component that handles state management, inputs, and calculates the delivery fee based on user inputs.
+- **`CustomInput.tsx`**: A reusable input field component for handling various types of input fields.
+- **`calculateDeliveryFee.ts`**: A utility file that contains the core logic for calculating the delivery fee based on the input values.
+
+## How to Use
+
+### Step 1: Enter the Cart Value
+- Input the value of your cart (numeric).
+
+### Step 2: Enter the Delivery Distance
+- Input the distance from the store to the customer in meters.
+
+### Step 3: Enter the Amount of Items
+- Enter the number of items in the cart.
+
+### Step 4: Select the Order Time
+- Select the date of the order. If the order is placed on a Friday between 3 PM to 7 PM UTC, a rush hour surcharge will be applied.
+
+### Step 5: Calculate Delivery Fee
+- Click the **"Calculate Delivery Price"** button to see the calculated delivery fee.
+
+## Example:
+
+- **Cart Value**: 15€
+- **Delivery Distance**: 1500 meters
+- **Amount of Items**: 6
+- **Date**: 2024-12-15 (Any time)
+
+The calculated delivery fee will be based on the conditions mentioned above.
+>>>>>>> f1bed100deab505d8cec6abded95b82f45f27437
